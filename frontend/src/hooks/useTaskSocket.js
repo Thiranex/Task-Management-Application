@@ -1,6 +1,6 @@
 import { useEffect, useRef, useCallback } from "react";
 
-const WS_BASE = import.meta.env.VITE_WS_URL || "ws://localhost:8000/ws";
+const WS_BASE = import.meta.env.VITE_WS_URL || (import.meta.env.PROD ? `${window.location.protocol === 'https:' ? 'wss:' : 'ws:'}//${window.location.host}/ws` : "ws://localhost:8000/ws");
 
 /**
  * Custom hook for WebSocket real-time task updates.
