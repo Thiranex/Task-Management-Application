@@ -1,36 +1,13 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "backend/vercel_app.py",
-      "use": "@vercel/python"
+  "experimentalServices": {
+    "frontend": {
+      "entrypoint": "frontend",
+      "routePrefix": "/",
+      "framework": "vite"
     },
-    {
-      "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
+    "backend": {
+      "entrypoint": "backend",
+      "routePrefix": "/_/backend"
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/backend/vercel_app.py"
-    },
-    {
-      "source": "/docs",
-      "destination": "/backend/vercel_app.py"
-    },
-    {
-      "source": "/openapi.json",
-      "destination": "/backend/vercel_app.py"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
+  }
 }
-
-
