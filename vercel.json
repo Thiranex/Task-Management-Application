@@ -13,22 +13,25 @@
       }
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api/(.*)",
-      "destination": "/backend/vercel_app.py"
+      "src": "/api/(.*)",
+      "dest": "/backend/vercel_app.py"
     },
     {
-      "source": "/docs",
-      "destination": "/backend/vercel_app.py"
+      "src": "/docs",
+      "dest": "/backend/vercel_app.py"
     },
     {
-      "source": "/openapi.json",
-      "destination": "/backend/vercel_app.py"
+      "src": "/openapi.json",
+      "dest": "/backend/vercel_app.py"
     },
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
